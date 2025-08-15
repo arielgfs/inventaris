@@ -32,6 +32,10 @@ Route::get('/aplikasi/{id}', [AplikasiController::class, 'show'])->name('aplikas
 Route::get('/aplikasi/{id}/edit', [AplikasiController::class, 'edit'])->name('aplikasi.edit');
 Route::put('/aplikasi/{id}', [AplikasiController::class, 'update'])->name('aplikasi.update');
 
+// Add demo route
+Route::get('/demo', function () {
+    return view('demo');
+});
 
 // TEKNOLOGI
 Route::get('/teknologi', [TeknologiController::class, 'index'])->name('teknologi.index');
@@ -49,4 +53,3 @@ Route::get('/klien', [KlienController::class, 'index'])->name('klien.index');
 Route::get('/klien/create', [KlienController::class, 'create'])->name('klien.create');
 Route::post('/klien', [KlienController::class, 'store'])->name('klien.store');
 Route::delete('/klien/{id}', [KlienController::class, 'destroy'])->name('klien.destroy');
-

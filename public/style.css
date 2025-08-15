@@ -1,0 +1,73 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+.header-container {
+    background-color: #ff6b35; /* Darker Orange */
+    padding: 30px 0;
+    color: white;
+    text-align: center;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #ff8c42; /* Dark Orange */
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #ffe8d6; /* Light Orange */
+}
+
+tbody tr:nth-child(odd) {
+    background: #ffffff; /* White */
+}
+
+/* Button Styles */
+.btn,
+button[type="submit"] {
+    background: #ff6b35; /* Darker Orange */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+    background: #ff5722; /* Darker Shade on Hover */
+}
+
+/* Additional Styles */
+img {
+    width: 80px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
