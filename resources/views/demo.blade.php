@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Desain Orange & Putih</title>
+    <title>Elegant Black & Fire - Sistem Inventaris Digital</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header-container">
-        <h1>🍊 Sistem Inventaris Digital</h1>
-        <p>Desain Modern dengan Warna Orange & Putih</p>
+        <h1>🔥 Sistem Inventaris Digital</h1>
+        <p>Elegant Design with Black & Fire Theme</p>
     </div>
 
     <div class="container">
         <!-- Success Message Demo -->
         <div class="success-message">
-            ✅ Data berhasil disimpan!
+            🔥 Data berhasil disimpan!
         </div>
 
         <!-- Form Klien -->
         <div class="form-section">
-            <h2>📋 Tambah Klien Baru</h2>
+            <h2>🏢 Tambah Klien Baru</h2>
             <form>
                 <div class="form-group">
                     <label for="nama">Nama Klien</label>
@@ -32,7 +35,7 @@
                     <input type="file" id="logo" name="logo" accept="image/*">
                 </div>
                 
-                <button type="submit" class="btn">Simpan Klien</button>
+                <button type="submit" class="btn">🔥 Simpan Klien</button>
             </form>
         </div>
 
@@ -67,7 +70,7 @@
                     <input type="file" id="gambar" name="gambar" accept="image/*">
                 </div>
                 
-                <button type="submit" class="btn">Simpan Aplikasi</button>
+                <button type="submit" class="btn">🔥 Simpan Aplikasi</button>
             </form>
         </div>
 
@@ -97,21 +100,12 @@
                     </select>
                 </div>
                 
-                <button type="submit" class="btn">Simpan Teknologi</button>
+                <button type="submit" class="btn">🔥 Simpan Teknologi</button>
             </form>
         </div>
     </div>
 
-    <style>
-        /* Additional demo styles */
-        body {
-            padding-bottom: 50px;
-        }
-        
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-        }
-    </style>
+    <!-- Fire Animation Background -->
+    <div class="fire-background"></div>
 </body>
 </html>

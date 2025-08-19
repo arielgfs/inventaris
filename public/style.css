@@ -1,73 +1,393 @@
-/* Global Styles */
+/* ========================================
+   ELEGANT BLACK & FIRE THEME
+   Sophisticated dark design with fire accents
+   ======================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+/* CSS Variables for Fire Theme */
+:root {
+    --deep-black: #0a0a0a;
+    --charcoal: #1a1a1a;
+    --dark-gray: #2a2a2a;
+    --medium-gray: #3a3a3a;
+    --light-gray: #cccccc;
+    --white: #ffffff;
+    
+    /* Fire Colors */
+    --fire-red: #ff4500;
+    --fire-orange: #ff6b35;
+    --fire-gold: #ff8c42;
+    --fire-glow: #ff6b35;
+    
+    /* Gradients */
+    --fire-gradient: linear-gradient(135deg, #ff4500, #ff6b35, #ff8c42);
+    --dark-gradient: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    --glass-bg: rgba(255, 107, 53, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    background: var(--deep-black);
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 69, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 140, 66, 0.1) 0%, transparent 50%);
+    color: var(--white);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+    background: var(--fire-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--fire-orange);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--fire-gradient);
+    border-radius: 2px;
 }
 
 /* Header Styles */
 .header-container {
-    background-color: #ff6b35; /* Darker Orange */
-    padding: 30px 0;
-    color: white;
+    background: var(--dark-gradient);
+    padding: 60px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255, 107, 53, 0.1) 50%, transparent 70%);
+    animation: fireGlow 3s ease-in-out infinite alternate;
+}
+
+.header-container h1 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+}
+
+.header-container p {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    position: relative;
+    z-index: 2;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Glassmorphism Cards */
+.form-section {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.form-section:hover::before {
+    left: 100%;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--fire-orange);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(42, 42, 42, 0.8);
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--fire-orange);
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+    background: rgba(42, 42, 42, 0.9);
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px dashed var(--medium-gray);
+    background: rgba(42, 42, 42, 0.5);
+}
+
+input[type="file"]:hover {
+    border-color: var(--fire-orange);
+    background: rgba(255, 107, 53, 0.1);
+}
+
+/* Button Styles */
+.btn,
+button[type="submit"] {
+    background: var(--fire-gradient);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn::before,
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before,
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+/* Success Message */
+.success-message {
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid var(--fire-orange);
+    color: var(--fire-orange);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: firePulse 2s ease-in-out infinite;
 }
 
 /* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ccc;
-    text-align: left;
-    vertical-align: top;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 th {
-    background: #ff8c42; /* Dark Orange */
-    color: white;
+    background: var(--fire-gradient);
+    color: var(--white);
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-tbody tr:nth-child(even) {
-    background: #ffe8d6; /* Light Orange */
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    color: var(--light-gray);
 }
 
-tbody tr:nth-child(odd) {
-    background: #ffffff; /* White */
+tbody tr:hover {
+    background: rgba(255, 107, 53, 0.1);
+    transition: background 0.3s ease;
 }
 
-/* Button Styles */
-.btn,
-button[type="submit"] {
-    background: #ff6b35; /* Darker Orange */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover,
-button[type="submit"]:hover {
-    background: #ff5722; /* Darker Shade on Hover */
-}
-
-/* Additional Styles */
+/* Image Styles */
 img {
     width: 80px;
-    border-radius: 6px;
+    height: 80px;
+    border-radius: 10px;
     object-fit: cover;
+    border: 2px solid var(--fire-orange);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.5);
+}
+
+/* Divider */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--fire-gradient);
+    margin: 40px 0;
+    border-radius: 1px;
+}
+
+/* Animations */
+@keyframes fireGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes firePulse {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(255, 107, 53, 0.5);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        padding: 20px 10px;
     }
+    
+    .form-section {
+        padding: 25px;
+        margin: 20px 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn,
+    button[type="submit"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--fire-gradient);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fire-orange);
+}
+
+/* Selection Styling */
+::selection {
+    background: var(--fire-orange);
+    color: var(--white);
+}
+
+/* Focus Styles */
+*:focus {
+    outline: 2px solid var(--fire-orange);
+    outline-offset: 2px;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 107, 53, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--fire-orange);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
