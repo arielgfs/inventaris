@@ -144,7 +144,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-      <a href="{{ url()->previous() }}" class="btn btn-back">Kembali</a>
+      <a href="{{ url()->previous() }}" class="btn btn-back">← Kembali</a>
     </form>
   </div>
 </body>
