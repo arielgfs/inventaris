@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class KlienController extends Controller
 {
-   public function index()
+    public function create()
+    {
+        return view('klien.create'); // Return the view for creating a new client
+    }
+
+    public function index()
 {
     $kliens = Klien::all();
     return view('klien.index', compact('kliens'));

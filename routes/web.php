@@ -38,7 +38,11 @@ Route::get('/demo', function () {
 });
 
 // TEKNOLOGI
-Route::get('/teknologi', [TeknologiController::class, 'index'])->name('teknologi.index');
+Route::get('/teknologi', function () {
+    return view('teknologi.index-updated', [
+        'teknologis' => \App\Models\Teknologi::all()
+    ]);
+})->name('teknologi.index');
 Route::resource('teknologi', TeknologiController::class);
 Route::post('/teknologi', [TeknologiController::class, 'store'])->name('teknologi.store');
 Route::get('/teknologi/{id}/edit', [TeknologiController::class, 'edit'])->name('teknologi.edit');
@@ -49,7 +53,11 @@ Route::get('/galeri', [AplikasiController::class, 'index'])->name('aplikasi.inde
 
 Route::get('/aplikasi', [AplikasiController::class, 'index'])->name('aplikasi.index');
 
-Route::get('/klien', [KlienController::class, 'index'])->name('klien.index');
+Route::get('/klien', function () {
+    return view('klien.index-updated', [
+        'kliens' => \App\Models\Klien::all()
+    ]);
+})->name('klien.index');
 Route::get('/klien/create', [KlienController::class, 'create'])->name('klien.create');
 Route::post('/klien', [KlienController::class, 'store'])->name('klien.store');
 Route::delete('/klien/{id}', [KlienController::class, 'destroy'])->name('klien.destroy');

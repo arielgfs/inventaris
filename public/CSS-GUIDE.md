@@ -4,9 +4,9 @@
 ```css
 :root {
     --black: #1a1a1a;          /* Warna hitam utama */
-    --dark-gray: #2d2d2d;      /* Abu-abu gelap */
-    --medium-gray: #404040;    /* Abu-abu medium */
-    --light-gray: #666666;     /* Abu-abu terang */
+    --dark-gray: #ffffffff;      /* Abu-abu gelap */
+    --medium-gray: #ffffffff;    /* Abu-abu medium */
+    --light-gray: #ffffffff;     /* Abu-abu terang */
     --orange: #ff6b00;         /* Orange utama */
     --light-orange: #ff8c33;   /* Orange terang */
     --dark-orange: #e55a00;    /* Orange gelap */

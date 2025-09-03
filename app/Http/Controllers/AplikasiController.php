@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 class AplikasiController extends Controller
 {
 
+    public function create()
+    {
+        $klien = Klien::all(); // Get all clients for the dropdown
+        return view('aplikasi.create', compact('klien'));
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -63,7 +69,7 @@ class AplikasiController extends Controller
         }
 
         $aplikasi = $query->orderBy('created_at', 'desc')->get();
-        return view('aplikasi.tabel', compact('aplikasi'));
+        return view('aplikasi.tabel-updated', compact('aplikasi'));
     }
 
 

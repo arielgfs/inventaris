@@ -3,61 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
     <style>
+        :root {
+            --primary: #045598ff;
+            --primary-hover: #ff8533;
+            --blue: #045598ff;
+            --danger: #df0f00da;
+            --success: #4CAF50;
+            --light: #fff;
+            --dark: #111;
+            --gray: #f9f9f9;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--gray);
             padding: 40px;
+            color: var(--dark);
         }
-        .section {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            padding: 20px;
-        }
-        h2, h3 {
+
+        h2, h3, h4 {
             margin-top: 0;
+            font-weight: 600;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
+
+        .section {
+            background-color: var(--light);
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding: 25px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         th, td {
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 12px 15px;
+            border: 1px solid #eaeaea;
         }
         th {
-            width: 20%;
-            background-color: #f0f0f0;
+            background-color: #f3f3f3;
             text-align: left;
+            font-weight: 500;
         }
-        .btn {
-            display: inline-block;
-            padding: 6px 12px;
-            margin-right: 5px;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
+        tbody tr:hover {
+            background: #fafafa;
         }
-        .btn-edit {
-            background-color: #4CAF50;
-        }
-        .btn-delete {
-            background-color: #f44336;
-        }
+
         img {
             max-width: 120px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            margin: 2px 3px;
+            color: white;
             border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 120px;
+            text-align: center;
+        }
+
+        .btn-back {
+            background-color: #045598;
+            color: white;
+            box-shadow: 0 0 8px rgba(4, 85, 152, 0.5);
+            width: 120px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-back:hover {
+            background-color: #0670c4;
+            box-shadow: 0 0 12px rgba(4, 85, 152, 0.8);
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: #045598;
+            color: white;
+            box-shadow: 0 0 8px rgba(4, 85, 152, 0.5);
+            width: 120px;
+            text-align: center;
+        }
+        .btn-edit:hover {
+            background-color: #0670c4;
+            box-shadow: 0 0 12px rgba(4, 85, 152, 0.8);
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: red;
+            color: white;
+            box-shadow: 0 0 6px rgba(220,53,69,0.5);
+            width: 120px;
+            text-align: center;
+        }
+        .btn-delete:hover {
+            background-color: #dc3545;
+            box-shadow: 0 0 12px rgba(220,53,69,0.8);
+            color: white;
+        }
+
+        /* Input di form Tambah Teknologi */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 8px rgba(255,107,0,0.5);
         }
     </style>
 </head>
 <body>
 
-    <h2>Detail Aplikasi </h2>
-    <a href="{{ url()->previous() }}" class="btn btn-back" style="background-color:#2196F3; color:white; padding:6px 12px; border-radius:5px; text-decoration:none;">← Kembali</a>
+    <h2>Detail Aplikasi</h2>
+    <a href="{{ url()->previous() }}" class="btn btn-back">Kembali</a>
 
     <!-- Bagian Klien -->
     <div class="section">
@@ -80,11 +162,11 @@
             <tr>
                 <th>Aksi</th>
                 <td>
-                    <a href="{{ route('klien.edit', $aplikasi->klien->id) }}" class="btn btn-edit">Edit</a>
+                    <a href="{{ route('klien.edit', $aplikasi->klien->id) }}" class="btn-edit">Edit</a>
                     <form method="POST" action="{{ route('klien.destroy', $aplikasi->klien->id) }}" style="display:inline;" onsubmit="return confirm('Hapus klien ini?')">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-delete">Hapus</button>
+                        <button type="submit" class="btn-delete">Hapus</button>
                     </form>
                 </td>
             </tr>
@@ -167,6 +249,7 @@
                 @endforelse
             </tbody>
         </table>
+
         <!-- Form Tambah Teknologi -->
         <h4>Tambah Teknologi Baru</h4>
         <form method="POST" action="{{ route('teknologi.store') }}">
@@ -184,12 +267,11 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit" class="btn btn-edit">+ Tambah Teknologi</button>
+                        <button type="submit" class="btn-edit">+ Tambah Teknologi</button>
                     </td>
                 </tr>
             </table>
         </form>
-
     </div>
 
 </body>
